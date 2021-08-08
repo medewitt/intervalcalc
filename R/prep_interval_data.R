@@ -1,9 +1,10 @@
 #' Prepare Interval Data
-#' 
+#'
 #' This function can be used to prepare data for fitting
-#' 
+#'
 #' @param dat a data.frame with columes named er, el sl,sr
-#' 
+#' @export
+#' @returns a named list for use with `fit_interval_data`
 
 prep_interval_data <- function(dat){
 

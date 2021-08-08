@@ -24,7 +24,7 @@ a data.frame with 28 rows and 10 columns
 Supporting materials for Nishiura H, Linton NM, Akhmetzhanov AR 2020
 "Serial interval of novel coronavirus (COVID-19) infections"
 International journal of infectious diseases 93: 284–6
-(\url{doi:10.1016/j.ijid.2020.02.060})
+(\doi{10.1016/j.ijid.2020.02.060})
 }
 \usage{
 nishiura

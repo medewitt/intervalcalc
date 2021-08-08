@@ -90,7 +90,7 @@ generated quantities {
     real<lower = 0> mean_SI = exp(param1 + square(param2)/2);
     real<lower = 0> sd_SI = sqrt((exp(square(param2))-1)*exp(2*param1+square(param2)));
 
-    vector[N] log_likelihood;
+    vector[N] log_lik;
     for (k in 1:N)
-        log_likelihood[k] = lognormal_lpdf(s[k] - e[k] | param1, param2) - log(Z[k]);
+        log_lik[k] = lognormal_lpdf(s[k] - e[k] | param1, param2) - log(Z[k]);
 }

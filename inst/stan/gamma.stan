@@ -40,7 +40,7 @@ model {
 }
 
 generated quantities {
-    vector[N] log_likelihood;
+    vector[N] log_lik;
     for (k in 1:N)
-        log_likelihood[k] = gamma_lpdf(s[k] - e[k] | param1, param2);
+        log_lik[k] = gamma_lpdf(s[k] - e[k] | param1, param2);
 }

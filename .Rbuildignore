@@ -5,3 +5,8 @@
 ^codecov\.yml$
 ^\.github$
 ^data-raw$
+^Makefile$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.lintr$

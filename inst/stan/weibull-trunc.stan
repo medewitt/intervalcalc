@@ -90,7 +90,7 @@ model {
 generated quantities {
     real sd_SI = param2*sqrt(tgamma(1.0+2.0/param1)-(tgamma(1.0+1.0/param1))^2);
 
-    vector[N] log_likelihood;
+    vector[N] log_lik;
     for (k in 1:N)
-        log_likelihood[k] = weibull_lpdf(s[k] - e[k] | param1, param2) - log(Z[k]);
+        log_lik[k] = weibull_lpdf(s[k] - e[k] | param1, param2) - log(Z[k]);
 }
