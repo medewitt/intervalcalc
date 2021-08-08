@@ -9,10 +9,10 @@ prep_interval_data <- function(dat){
 
     out <- list(
         N = nrow(dat),
-        E_L = dat[["el"]],
-        E_R = dat[["er"]],
-        S_L = dat[["sl"]]
-        S_R = dat[["sr"]]
+        E_L = dat[["EL"]],
+        E_R = dat[["ER"]],
+        S_L = dat[["SL"]],
+        S_R = dat[["SR"]]
     )
 
     return(out)
