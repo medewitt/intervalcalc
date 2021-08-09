@@ -6,7 +6,7 @@
 #' @export
 #' @returns a named list for use with `fit_interval_data`
 
-prep_interval_data <- function(dat){
+prep_interval_data <- function(dat) {
 
     out <- list(
         N = nrow(dat),

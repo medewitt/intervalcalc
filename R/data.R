@@ -1,3 +1,4 @@
+
 #' Serial Interval Data from Nishiura et al
 #'
 #' @source Supporting materials for Nishiura H, Linton NM, Akhmetzhanov AR 2020

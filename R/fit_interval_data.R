@@ -18,9 +18,10 @@ fit_interval_data <- function(interval_data,
 
     local_location <- rappdirs::user_cache_dir(appname = this_pkg())
 
-    if(length(list.files(local_location, pattern = ".stan"))>1){
+    if (length(list.files(local_location, pattern = ".stan")) > 1) {
         cli::cli_alert_info("Using cached Stan models")
-        cli::cli_alert_info("Use `intervalcalc::clear_cache` if you need to refresh")
+        cli::cli_alert_info(
+        "Use `intervalcalc::clear_cache` if you need to refresh")
     } else {
         cli::cli_alert_info("Copying Stan models to cache")
         staninside::copy_models(this_pkg())
@@ -39,15 +40,15 @@ fit_interval_data <- function(interval_data,
         model_file_path <- file.path(local_location, paste0(i, ".stan"))
         mod <- cmdstanr::cmdstan_model(model_file_path)
         fit <- mod$sample(data = interval_data,
-                          parallel_chains = stan_opts[["iter_sampling"]] %||% 2,
-                          iter_sampling = stan_opts[["iter_sampling"]] %||% 1000,
-                          iter_warmup = stan_opts[["iter_warmup"]] %||% 1000,
-                          refresh = stan_opts[["refresh"]] %||% 250,
-                          init = stan_opts[["refresh"]] %||% NULL,
-                          seed  = stan_opts[["seed"]] %||% 336
-                          )
+                        parallel_chains = stan_opts[["iter_sampling"]] %||% 2,
+                        iter_sampling = stan_opts[["iter_sampling"]] %||% 1000,
+                        iter_warmup = stan_opts[["iter_warmup"]] %||% 1000,
+                        refresh = stan_opts[["refresh"]] %||% 250,
+                        init = stan_opts[["refresh"]] %||% NULL,
+                        seed  = stan_opts[["seed"]] %||% 336
+                        )
 
-        if(return_raw){
+        if (return_raw) {
             out_contents <- fit
         } else {
 
