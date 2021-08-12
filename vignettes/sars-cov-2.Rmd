@@ -32,7 +32,7 @@ Now using the formatted data, we can pass the data to a series of or a particula
 
 
 ```{r}
-fits <- fit_interval_data(interval_data = dat, distribution = "gamma")
+fits <- fit_interval_data(interval_data = dat, distribution = c("gamma", "lognormal"))
 ```
 
 We can then inspect the outputs:
@@ -42,6 +42,16 @@ knitr::kable(fits$gamma$sumz, digits = 2)
 ```
 
 ```{r}
+knitr::kable(fits$lognormal$sumz, digits = 2)
+```
+
+```{r}
 fits$gamma$loo
+```
+
+## Determine Best Fit
+
+```{r}
+loo::loo_compare(fits$gamma$loo, fits$lognormal$loo)
 ```
 
