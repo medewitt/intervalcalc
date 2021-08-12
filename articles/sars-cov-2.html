@@ -96,7 +96,7 @@
 <a href="#fit-the-models" class="anchor"></a>Fit the Models</h2>
 <p>Now using the formatted data, we can pass the data to a series of or a particular distribution.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fit_interval_data.html">fit_interval_data</a></span><span class="op">(</span>interval_data <span class="op">=</span> <span class="va">dat</span>, distribution <span class="op">=</span> <span class="st">"gamma"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">fits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fit_interval_data.html">fit_interval_data</a></span><span class="op">(</span>interval_data <span class="op">=</span> <span class="va">dat</span>, distribution <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gamma"</span>, <span class="st">"lognormal"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; ℹ Copying Stan models to cache</span>
 <span class="co">#&gt; All models have been copied to your specifided location</span>
 <span class="co">#&gt; ✔ Models copied!</span>
@@ -105,56 +105,127 @@
 <span class="co">#&gt; Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
 <span class="co">#&gt; Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
 <span class="co">#&gt; Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
-<span class="co">#&gt; Chain 2 Exception: gamma_lpdf: Shape parameter is inf, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpknoqHm/model-162f73e653f0.stan', line 39, column 4 to column 49)</span>
+<span class="co">#&gt; Chain 2 Exception: gamma_lpdf: Shape parameter is inf, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20160470ad.stan', line 39, column 4 to column 49)</span>
 <span class="co">#&gt; Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
 <span class="co">#&gt; Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
 <span class="co">#&gt; Chain 2</span>
 <span class="co">#&gt; Chain 1 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
+<span class="co">#&gt; Chain 2 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
+<span class="co">#&gt; Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
 <span class="co">#&gt; Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
 <span class="co">#&gt; Chain 1 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
 <span class="co">#&gt; Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
 <span class="co">#&gt; Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
 <span class="co">#&gt; Chain 2 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
 <span class="co">#&gt; Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
 <span class="co">#&gt; Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
 <span class="co">#&gt; Chain 2 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
 <span class="co">#&gt; Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
 <span class="co">#&gt; Chain 1 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
 <span class="co">#&gt; Chain 2 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
 <span class="co">#&gt; Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 finished in 0.6 seconds.</span>
+<span class="co">#&gt; Chain 2 finished in 0.5 seconds.</span>
 <span class="co">#&gt; Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
 <span class="co">#&gt; Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
 <span class="co">#&gt; Chain 1 finished in 0.6 seconds.</span>
 <span class="co">#&gt; Chain 3 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
 <span class="co">#&gt; Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
 <span class="co">#&gt; Chain 3 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
+<span class="co">#&gt; Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
 <span class="co">#&gt; Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
 <span class="co">#&gt; Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
 <span class="co">#&gt; Chain 3 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
+<span class="co">#&gt; Chain 4 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
 <span class="co">#&gt; Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
 <span class="co">#&gt; Chain 3 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
 <span class="co">#&gt; Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
 <span class="co">#&gt; Chain 4 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
 <span class="co">#&gt; Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
 <span class="co">#&gt; Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
 <span class="co">#&gt; Chain 4 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 finished in 0.6 seconds.</span>
 <span class="co">#&gt; Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 finished in 0.6 seconds.</span>
 <span class="co">#&gt; Chain 4 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
 <span class="co">#&gt; Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
 <span class="co">#&gt; Chain 4 finished in 0.6 seconds.</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; All 4 chains finished successfully.</span>
 <span class="co">#&gt; Mean chain execution time: 0.6 seconds.</span>
-<span class="co">#&gt; Total execution time: 1.8 seconds.</span>
+<span class="co">#&gt; Total execution time: 1.9 seconds.</span>
+<span class="co">#&gt; Warning: Some Pareto k diagnostic values are slightly high. See help('pareto-k-diagnostic') for details.</span>
+<span class="co">#&gt; Running MCMC with 4 chains, at most 2 in parallel...</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
+<span class="co">#&gt; Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
+<span class="co">#&gt; Chain 1 Exception: lognormal_lpdf: Scale parameter is 0, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
+<span class="co">#&gt; Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
+<span class="co">#&gt; Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
+<span class="co">#&gt; Chain 1</span>
+<span class="co">#&gt; Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
+<span class="co">#&gt; Chain 1 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
+<span class="co">#&gt; Chain 2 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
+<span class="co">#&gt; Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
+<span class="co">#&gt; Chain 1 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
+<span class="co">#&gt; Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
+<span class="co">#&gt; Chain 2 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
+<span class="co">#&gt; Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
+<span class="co">#&gt; Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
+<span class="co">#&gt; Chain 2 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
+<span class="co">#&gt; Chain 1 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
+<span class="co">#&gt; Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
+<span class="co">#&gt; Chain 2 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
+<span class="co">#&gt; Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
+<span class="co">#&gt; Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
+<span class="co">#&gt; Chain 1 finished in 0.6 seconds.</span>
+<span class="co">#&gt; Chain 2 finished in 0.6 seconds.</span>
+<span class="co">#&gt; Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
+<span class="co">#&gt; Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
+<span class="co">#&gt; Chain 3 Exception: lognormal_lpdf: Location parameter is -inf, but must be finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
+<span class="co">#&gt; Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
+<span class="co">#&gt; Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
+<span class="co">#&gt; Chain 3</span>
+<span class="co">#&gt; Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
+<span class="co">#&gt; Chain 3 Exception: lognormal_lpdf: Scale parameter is 0, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
+<span class="co">#&gt; Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
+<span class="co">#&gt; Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
+<span class="co">#&gt; Chain 3</span>
+<span class="co">#&gt; Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
+<span class="co">#&gt; Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
+<span class="co">#&gt; Chain 4 Exception: lognormal_lpdf: Scale parameter is 0, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
+<span class="co">#&gt; Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
+<span class="co">#&gt; Chain 4 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
+<span class="co">#&gt; Chain 4</span>
+<span class="co">#&gt; Chain 3 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
+<span class="co">#&gt; Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
+<span class="co">#&gt; Chain 3 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
+<span class="co">#&gt; Chain 4 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
+<span class="co">#&gt; Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
+<span class="co">#&gt; Chain 4 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
+<span class="co">#&gt; Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
+<span class="co">#&gt; Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
+<span class="co">#&gt; Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
+<span class="co">#&gt; Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
+<span class="co">#&gt; Chain 4 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
+<span class="co">#&gt; Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
+<span class="co">#&gt; Chain 4 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
+<span class="co">#&gt; Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
+<span class="co">#&gt; Chain 3 finished in 0.6 seconds.</span>
+<span class="co">#&gt; Chain 4 finished in 0.6 seconds.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; All 4 chains finished successfully.</span>
+<span class="co">#&gt; Mean chain execution time: 0.6 seconds.</span>
+<span class="co">#&gt; Total execution time: 1.5 seconds.</span>
 <span class="co">#&gt; Warning: Some Pareto k diagnostic values are slightly high. See help('pareto-k-diagnostic') for details.</span></code></pre></div>
 <p>We can then inspect the outputs:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -200,6 +271,48 @@
 </tbody>
 </table>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">fits</span><span class="op">$</span><span class="va">lognormal</span><span class="op">$</span><span class="va">sumz</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">variable</th>
+<th align="right">mean</th>
+<th align="right">median</th>
+<th align="right">sd</th>
+<th align="right">mad</th>
+<th align="right">q5</th>
+<th align="right">q95</th>
+<th align="right">rhat</th>
+<th align="right">ess_bulk</th>
+<th align="right">ess_tail</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">mean_SI</td>
+<td align="right">4.58</td>
+<td align="right">4.54</td>
+<td align="right">0.51</td>
+<td align="right">0.49</td>
+<td align="right">3.83</td>
+<td align="right">5.46</td>
+<td align="right">1</td>
+<td align="right">5853.61</td>
+<td align="right">2983.35</td>
+</tr>
+<tr class="even">
+<td align="left">sd_SI</td>
+<td align="right">2.77</td>
+<td align="right">2.65</td>
+<td align="right">0.65</td>
+<td align="right">0.56</td>
+<td align="right">1.93</td>
+<td align="right">4.00</td>
+<td align="right">1</td>
+<td align="right">5313.51</td>
+<td align="right">2600.32</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fits</span><span class="op">$</span><span class="va">gamma</span><span class="op">$</span><span class="va">loo</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Computed from 4000 by 28 log-likelihood matrix</span>
@@ -220,6 +333,15 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; All Pareto k estimates are ok (k &lt; 0.7).</span>
 <span class="co">#&gt; See help('pareto-k-diagnostic') for details.</span></code></pre></div>
+</div>
+<div id="determine-best-fit" class="section level2">
+<h2 class="hasAnchor">
+<a href="#determine-best-fit" class="anchor"></a>Determine Best Fit</h2>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">loo</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/loo/reference/loo_compare.html">loo_compare</a></span><span class="op">(</span><span class="va">fits</span><span class="op">$</span><span class="va">gamma</span><span class="op">$</span><span class="va">loo</span>, <span class="va">fits</span><span class="op">$</span><span class="va">lognormal</span><span class="op">$</span><span class="va">loo</span><span class="op">)</span>
+<span class="co">#&gt;        elpd_diff se_diff</span>
+<span class="co">#&gt; model2  0.0       0.0   </span>
+<span class="co">#&gt; model1 -0.5       1.1</span></code></pre></div>
 </div>
   </div>
 
