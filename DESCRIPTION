@@ -1,13 +1,13 @@
 Package: intervalcalc
 Title: Calculations for Epidemiological Intervals
-Version: 0.0.1.9000
+Version: 0.0.1.9001
 Authors@R: 
     person(given = "Michael",
            family = "DeWitt",
            role = c("aut", "cre"),
            email = "me.dewitt.jr@gmail.com",
            comment = c(ORCID = "0000-0001-8940-1967"))
-Description: Calculating intervals.
+Description: Calculating epidemiological intervals
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -17,13 +17,13 @@ Suggests:
     covr,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    cmdstanr
 Depends: 
     R (>= 2.10)
 Imports: 
     staninside,
     checkmate,
-    cmdstanr,
     rappdirs,
     cli,
     loo

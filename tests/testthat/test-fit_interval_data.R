@@ -1,3 +1,4 @@
+if(skip_if_not_installed("cmdstanr")){
 
 fit_test <- function(){
 	dat <- prep_interval_data(nishiura)
@@ -25,3 +26,4 @@ test_that("Desired variables appear", {
 test_that("Stops on invalid distribution", {
 	expect_error(fit_interval_data(interval_data = mtcars, distribution = "triangle"))
 })
+}

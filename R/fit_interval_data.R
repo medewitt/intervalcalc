@@ -16,6 +16,7 @@ fit_interval_data <- function(interval_data,
                               stan_opts = list(),
                               return_raw = FALSE) {
 
+    requireNamespace("cmdstanr")
     local_location <- rappdirs::user_cache_dir(appname = this_pkg())
 
     if (length(list.files(local_location, pattern = ".stan")) > 1) {
