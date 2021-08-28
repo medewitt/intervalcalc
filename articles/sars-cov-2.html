@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">intervalcalc</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9001</span>
       </span>
     </div>
 
@@ -96,137 +96,7 @@
 <a href="#fit-the-models" class="anchor"></a>Fit the Models</h2>
 <p>Now using the formatted data, we can pass the data to a series of or a particular distribution.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fit_interval_data.html">fit_interval_data</a></span><span class="op">(</span>interval_data <span class="op">=</span> <span class="va">dat</span>, distribution <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gamma"</span>, <span class="st">"lognormal"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; ℹ Copying Stan models to cache</span>
-<span class="co">#&gt; All models have been copied to your specifided location</span>
-<span class="co">#&gt; ✔ Models copied!</span>
-<span class="co">#&gt; Running MCMC with 4 chains, at most 2 in parallel...</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
-<span class="co">#&gt; Chain 2 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
-<span class="co">#&gt; Chain 2 Exception: gamma_lpdf: Shape parameter is inf, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20160470ad.stan', line 39, column 4 to column 49)</span>
-<span class="co">#&gt; Chain 2 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
-<span class="co">#&gt; Chain 2 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
-<span class="co">#&gt; Chain 2</span>
-<span class="co">#&gt; Chain 1 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 finished in 0.5 seconds.</span>
-<span class="co">#&gt; Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 finished in 0.6 seconds.</span>
-<span class="co">#&gt; Chain 3 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 finished in 0.6 seconds.</span>
-<span class="co">#&gt; Chain 4 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 finished in 0.6 seconds.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; All 4 chains finished successfully.</span>
-<span class="co">#&gt; Mean chain execution time: 0.6 seconds.</span>
-<span class="co">#&gt; Total execution time: 1.9 seconds.</span>
-<span class="co">#&gt; Warning: Some Pareto k diagnostic values are slightly high. See help('pareto-k-diagnostic') for details.</span>
-<span class="co">#&gt; Running MCMC with 4 chains, at most 2 in parallel...</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Chain 1 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
-<span class="co">#&gt; Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
-<span class="co">#&gt; Chain 1 Exception: lognormal_lpdf: Scale parameter is 0, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
-<span class="co">#&gt; Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
-<span class="co">#&gt; Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
-<span class="co">#&gt; Chain 1</span>
-<span class="co">#&gt; Chain 2 Iteration:    1 / 2000 [  0%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 2 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 1 finished in 0.6 seconds.</span>
-<span class="co">#&gt; Chain 2 finished in 0.6 seconds.</span>
-<span class="co">#&gt; Chain 3 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
-<span class="co">#&gt; Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
-<span class="co">#&gt; Chain 3 Exception: lognormal_lpdf: Location parameter is -inf, but must be finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
-<span class="co">#&gt; Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
-<span class="co">#&gt; Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
-<span class="co">#&gt; Chain 3</span>
-<span class="co">#&gt; Chain 3 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
-<span class="co">#&gt; Chain 3 Exception: lognormal_lpdf: Scale parameter is 0, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
-<span class="co">#&gt; Chain 3 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
-<span class="co">#&gt; Chain 3 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
-<span class="co">#&gt; Chain 3</span>
-<span class="co">#&gt; Chain 4 Iteration:    1 / 2000 [  0%]  (Warmup)</span>
-<span class="co">#&gt; Chain 4 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:</span>
-<span class="co">#&gt; Chain 4 Exception: lognormal_lpdf: Scale parameter is 0, but must be positive finite! (in '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp5wILH1/model-1a20f2d100a.stan', line 39, column 4 to column 53)</span>
-<span class="co">#&gt; Chain 4 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,</span>
-<span class="co">#&gt; Chain 4 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.</span>
-<span class="co">#&gt; Chain 4</span>
-<span class="co">#&gt; Chain 3 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration:  250 / 2000 [ 12%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration:  500 / 2000 [ 25%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration:  750 / 2000 [ 37%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1000 / 2000 [ 50%]  (Warmup) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1001 / 2000 [ 50%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1250 / 2000 [ 62%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1500 / 2000 [ 75%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 1750 / 2000 [ 87%]  (Sampling) </span>
-<span class="co">#&gt; Chain 4 Iteration: 2000 / 2000 [100%]  (Sampling) </span>
-<span class="co">#&gt; Chain 3 finished in 0.6 seconds.</span>
-<span class="co">#&gt; Chain 4 finished in 0.6 seconds.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; All 4 chains finished successfully.</span>
-<span class="co">#&gt; Mean chain execution time: 0.6 seconds.</span>
-<span class="co">#&gt; Total execution time: 1.5 seconds.</span>
-<span class="co">#&gt; Warning: Some Pareto k diagnostic values are slightly high. See help('pareto-k-diagnostic') for details.</span></code></pre></div>
+<code class="sourceCode R"><span class="va">fits</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fit_interval_data.html">fit_interval_data</a></span><span class="op">(</span>interval_data <span class="op">=</span> <span class="va">dat</span>, distribution <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gamma"</span>, <span class="st">"lognormal"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>We can then inspect the outputs:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">fits</span><span class="op">$</span><span class="va">gamma</span><span class="op">$</span><span class="va">sumz</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
@@ -246,27 +116,27 @@
 <tbody>
 <tr class="odd">
 <td align="left">mean_SI</td>
-<td align="right">4.79</td>
-<td align="right">4.75</td>
-<td align="right">0.54</td>
-<td align="right">0.51</td>
-<td align="right">3.98</td>
-<td align="right">5.73</td>
+<td align="right">4.78</td>
+<td align="right">4.74</td>
+<td align="right">0.53</td>
+<td align="right">0.49</td>
+<td align="right">3.99</td>
+<td align="right">5.71</td>
 <td align="right">1</td>
-<td align="right">5143.34</td>
-<td align="right">2727.38</td>
+<td align="right">5559.77</td>
+<td align="right">2831.91</td>
 </tr>
 <tr class="even">
 <td align="left">sd_SI</td>
-<td align="right">2.71</td>
+<td align="right">2.69</td>
 <td align="right">2.63</td>
-<td align="right">0.52</td>
-<td align="right">0.47</td>
+<td align="right">0.49</td>
+<td align="right">0.43</td>
 <td align="right">2.01</td>
-<td align="right">3.68</td>
+<td align="right">3.59</td>
 <td align="right">1</td>
-<td align="right">5218.73</td>
-<td align="right">3013.67</td>
+<td align="right">5767.14</td>
+<td align="right">2527.93</td>
 </tr>
 </tbody>
 </table>
@@ -290,49 +160,115 @@
 <td align="left">mean_SI</td>
 <td align="right">4.58</td>
 <td align="right">4.54</td>
-<td align="right">0.51</td>
+<td align="right">0.52</td>
 <td align="right">0.49</td>
-<td align="right">3.83</td>
-<td align="right">5.46</td>
+<td align="right">3.82</td>
+<td align="right">5.50</td>
 <td align="right">1</td>
-<td align="right">5853.61</td>
-<td align="right">2983.35</td>
+<td align="right">5625.39</td>
+<td align="right">2926.98</td>
 </tr>
 <tr class="even">
 <td align="left">sd_SI</td>
 <td align="right">2.77</td>
-<td align="right">2.65</td>
-<td align="right">0.65</td>
-<td align="right">0.56</td>
-<td align="right">1.93</td>
-<td align="right">4.00</td>
+<td align="right">2.66</td>
+<td align="right">0.64</td>
+<td align="right">0.57</td>
+<td align="right">1.94</td>
+<td align="right">3.96</td>
 <td align="right">1</td>
-<td align="right">5313.51</td>
-<td align="right">2600.32</td>
+<td align="right">5027.21</td>
+<td align="right">2860.47</td>
 </tr>
 </tbody>
 </table>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fits</span><span class="op">$</span><span class="va">gamma</span><span class="op">$</span><span class="va">loo</span>
+<span class="co">#&gt; $estimates</span>
+<span class="co">#&gt;            Estimate        SE</span>
+<span class="co">#&gt; elpd_loo -64.610845 3.6541095</span>
+<span class="co">#&gt; p_loo      2.171795 0.5305752</span>
+<span class="co">#&gt; looic    129.221691 7.3082189</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Computed from 4000 by 28 log-likelihood matrix</span>
+<span class="co">#&gt; $pointwise</span>
+<span class="co">#&gt;              elpd_loo mcse_elpd_loo      p_loo    looic influence_pareto_k</span>
+<span class="co">#&gt; log_lik[1]  -1.806464   0.002264893 0.02396319 3.612929       -0.060993477</span>
+<span class="co">#&gt; log_lik[2]  -2.068682   0.005306539 0.09046674 4.137364        0.222498206</span>
+<span class="co">#&gt; log_lik[3]  -1.830479   0.002196412 0.02289221 3.660959       -0.035166412</span>
+<span class="co">#&gt; log_lik[4]  -2.078758   0.005464006 0.09484101 4.157515        0.158690002</span>
+<span class="co">#&gt; log_lik[5]  -2.075751   0.005573051 0.09334323 4.151503        0.279970031</span>
+<span class="co">#&gt; log_lik[6]  -3.035251   0.025730374 0.51967982 6.070503        0.555487516</span>
+<span class="co">#&gt; log_lik[7]  -1.830642   0.002178357 0.02301240 3.661284        0.049294172</span>
+<span class="co">#&gt; log_lik[8]  -2.068492   0.005479298 0.09160995 4.136984        0.310881006</span>
+<span class="co">#&gt; log_lik[9]  -3.989165   0.007792193 0.21077244 7.978331        0.280180649</span>
+<span class="co">#&gt; log_lik[10] -1.831193   0.002241732 0.02296319 3.662385       -0.042839035</span>
+<span class="co">#&gt; log_lik[11] -1.806975   0.002342435 0.02421447 3.613949        0.143633760</span>
+<span class="co">#&gt; log_lik[12] -1.831049   0.002283885 0.02341364 3.662098       -0.015314334</span>
+<span class="co">#&gt; log_lik[13] -1.829117   0.002294826 0.02340209 3.658233       -0.003801884</span>
+<span class="co">#&gt; log_lik[14] -1.808858   0.002344014 0.02461010 3.617716        0.211677113</span>
+<span class="co">#&gt; log_lik[15] -1.804526   0.002187373 0.02360988 3.609052        0.142984771</span>
+<span class="co">#&gt; log_lik[16] -3.486273   0.005678628 0.13471984 6.972546        0.256869141</span>
+<span class="co">#&gt; log_lik[17] -3.489885   0.005517784 0.13590707 6.979771        0.130099761</span>
+<span class="co">#&gt; log_lik[18] -1.807286   0.002354947 0.02499681 3.614572        0.161009797</span>
+<span class="co">#&gt; log_lik[19] -1.831307   0.002228740 0.02319458 3.662615        0.027199200</span>
+<span class="co">#&gt; log_lik[20] -1.807065   0.002330861 0.02482729 3.614130        0.031479053</span>
+<span class="co">#&gt; log_lik[21] -3.484450   0.005610820 0.13661387 6.968901        0.097604357</span>
+<span class="co">#&gt; log_lik[22] -1.829657   0.002309563 0.02331380 3.659314       -0.017268853</span>
+<span class="co">#&gt; log_lik[23] -2.007800   0.002708199 0.03060905 4.015600       -0.111356284</span>
+<span class="co">#&gt; log_lik[24] -3.483285   0.005665523 0.13286829 6.966569        0.304212692</span>
+<span class="co">#&gt; log_lik[25] -2.628032   0.003432614 0.05586874 5.256063        0.251433720</span>
+<span class="co">#&gt; log_lik[26] -2.625345   0.003262226 0.05487962 5.250690        0.059252714</span>
+<span class="co">#&gt; log_lik[27] -1.807508   0.002248207 0.02470517 3.615016        0.154399750</span>
+<span class="co">#&gt; log_lik[28] -2.627549   0.003400799 0.05649628 5.255099        0.194313032</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;          Estimate  SE</span>
-<span class="co">#&gt; elpd_loo    -64.6 3.7</span>
-<span class="co">#&gt; p_loo         2.2 0.5</span>
-<span class="co">#&gt; looic       129.3 7.3</span>
-<span class="co">#&gt; ------</span>
-<span class="co">#&gt; Monte Carlo SE of elpd_loo is 0.0.</span>
+<span class="co">#&gt; $diagnostics</span>
+<span class="co">#&gt; $diagnostics$pareto_k</span>
+<span class="co">#&gt;  [1] -0.060993477  0.222498206 -0.035166412  0.158690002  0.279970031</span>
+<span class="co">#&gt;  [6]  0.555487516  0.049294172  0.310881006  0.280180649 -0.042839035</span>
+<span class="co">#&gt; [11]  0.143633760 -0.015314334 -0.003801884  0.211677113  0.142984771</span>
+<span class="co">#&gt; [16]  0.256869141  0.130099761  0.161009797  0.027199200  0.031479053</span>
+<span class="co">#&gt; [21]  0.097604357 -0.017268853 -0.111356284  0.304212692  0.251433720</span>
+<span class="co">#&gt; [26]  0.059252714  0.154399750  0.194313032</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Pareto k diagnostic values:</span>
-<span class="co">#&gt;                          Count Pct.    Min. n_eff</span>
-<span class="co">#&gt; (-Inf, 0.5]   (good)     27    96.4%   3892      </span>
-<span class="co">#&gt;  (0.5, 0.7]   (ok)        1     3.6%   1129      </span>
-<span class="co">#&gt;    (0.7, 1]   (bad)       0     0.0%   &lt;NA&gt;      </span>
-<span class="co">#&gt;    (1, Inf)   (very bad)  0     0.0%   &lt;NA&gt;      </span>
+<span class="co">#&gt; $diagnostics$n_eff</span>
+<span class="co">#&gt;  log_lik[1]  log_lik[2]  log_lik[3]  log_lik[4]  log_lik[5]  log_lik[6] </span>
+<span class="co">#&gt;    4957.730    4662.324    4895.280    4659.483    4673.876    1131.784 </span>
+<span class="co">#&gt;  log_lik[7]  log_lik[8]  log_lik[9] log_lik[10] log_lik[11] log_lik[12] </span>
+<span class="co">#&gt;    4988.788    4481.970    4578.032    4667.193    4751.256    4617.700 </span>
+<span class="co">#&gt; log_lik[13] log_lik[14] log_lik[15] log_lik[16] log_lik[17] log_lik[18] </span>
+<span class="co">#&gt;    4544.236    4801.100    5247.794    5315.606    5394.980    4850.263 </span>
+<span class="co">#&gt; log_lik[19] log_lik[20] log_lik[21] log_lik[22] log_lik[23] log_lik[24] </span>
+<span class="co">#&gt;    4760.141    4841.903    5256.224    4472.469    4246.721    5259.481 </span>
+<span class="co">#&gt; log_lik[25] log_lik[26] log_lik[27] log_lik[28] </span>
+<span class="co">#&gt;    5349.086    5580.340    5285.410    5292.074 </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; All Pareto k estimates are ok (k &lt; 0.7).</span>
-<span class="co">#&gt; See help('pareto-k-diagnostic') for details.</span></code></pre></div>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $psis_object</span>
+<span class="co">#&gt; NULL</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $elpd_loo</span>
+<span class="co">#&gt; [1] -64.61085</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $p_loo</span>
+<span class="co">#&gt; [1] 2.171795</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $looic</span>
+<span class="co">#&gt; [1] 129.2217</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $se_elpd_loo</span>
+<span class="co">#&gt; [1] 3.654109</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $se_p_loo</span>
+<span class="co">#&gt; [1] 0.5305752</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $se_looic</span>
+<span class="co">#&gt; [1] 7.308219</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; attr(,"dims")</span>
+<span class="co">#&gt; [1] 4000   28</span>
+<span class="co">#&gt; attr(,"class")</span>
+<span class="co">#&gt; [1] "psis_loo"                "importance_sampling_loo"</span>
+<span class="co">#&gt; [3] "loo"</span></code></pre></div>
 </div>
 <div id="determine-best-fit" class="section level2">
 <h2 class="hasAnchor">
@@ -341,7 +277,7 @@
 <code class="sourceCode R"><span class="fu">loo</span><span class="fu">::</span><span class="fu"><a href="https://mc-stan.org/loo/reference/loo_compare.html">loo_compare</a></span><span class="op">(</span><span class="va">fits</span><span class="op">$</span><span class="va">gamma</span><span class="op">$</span><span class="va">loo</span>, <span class="va">fits</span><span class="op">$</span><span class="va">lognormal</span><span class="op">$</span><span class="va">loo</span><span class="op">)</span>
 <span class="co">#&gt;        elpd_diff se_diff</span>
 <span class="co">#&gt; model2  0.0       0.0   </span>
-<span class="co">#&gt; model1 -0.5       1.1</span></code></pre></div>
+<span class="co">#&gt; model1 -0.4       1.1</span></code></pre></div>
 </div>
   </div>
 
